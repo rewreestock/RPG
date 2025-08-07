@@ -1,0 +1,60 @@
+name: "Generic Fantasy Adventure"
+description: "A classic fantasy RPG scenario with magic, monsters, and medieval settings. Perfect for D&D-style adventures with customizable world rules."
+setting: "fantasy"
+world_rules:
+  - "Magic exists in various schools: Arcane, Divine, Elemental, and Nature"
+  - "Multiple intelligent races coexist: Humans, Elves, Dwarves, Halflings, and others"
+  - "Monsters and magical creatures roam the wilderness"
+  - "Guilds and organizations provide structure for adventurers"
+  - "Ancient ruins and dungeons hold treasures and dangers"
+  - "Gods actively influence the world through their followers"
+danger_level: 0.6
+narrative_focus: "balanced"
+response_length: "medium"
+nsfw_level: 0
+tone: "balanced"
+characters:
+  "Adventurer":
+    description: "A brave soul seeking fortune and glory in a magical world"
+    personality: "Courageous, curious, and driven by a sense of adventure"
+    background: "A newcomer to the adventuring life with basic training and equipment"
+    abilities:
+      "Combat Skills": "Basic proficiency with weapons and armor"
+      "Magic Potential": "Some innate magical ability waiting to be developed"
+      "Survival Skills": "Knowledge of wilderness survival and dungeon exploration"
+    equipment: ["Basic weapons", "Leather armor", "Adventuring gear", "Small amount of gold"]
+    goals: ["Gain experience and power", "Discover ancient treasures", "Make a name in the world"]
+    relationships: {}
+protagonist: "Adventurer"
+plot_hooks:
+  - "Ancient evil stirs in forgotten ruins"
+  - "A powerful artifact has been discovered"
+  - "Political tensions between kingdoms threaten war"
+  - "Mysterious disappearances plague local villages"
+  - "A new dungeon has appeared overnight"
+  - "Dragons have been spotted after centuries of absence"
+current_scene: "Standing at the entrance to a frontier town, ready to begin your adventures."
+objectives:
+  - "Find your first quest or adventure"
+  - "Meet potential companions" 
+  - "Learn about the local area and its challenges"
+style_notes:
+  - "Embrace classic fantasy tropes while adding unique twists"
+  - "Provide rich descriptions of magical elements"
+  - "Include opportunities for both combat and roleplay"
+  - "Allow for multiple solution paths to challenges"
+important_facts:
+  - "The world is rich with magic and wonder"
+  - "Danger and opportunity exist in equal measure"
+  - "Reputation matters in adventuring communities"
+  - "Ancient mysteries hide powerful secrets"
+relationship_dynamics: {}
+system_prompt_additions:
+  - "Feel free to introduce new NPCs, locations, and plot elements as needed"
+  - "Maintain a sense of wonder and discovery in the magical world"
+  - "Balance challenges with fair opportunities for success"
+ai_personality_traits:
+  - "Enthusiastic about magical world-building"
+  - "Fair and balanced in challenge presentation"
+  - "Encouraging of creative problem-solving"
+  - "Vivid in describing fantasy environments and creatures"
