@@ -1,0 +1,95 @@
+name: "Historical Adventure"
+description: "A historically accurate roleplay set in a specific time period with authentic cultural context, technology, and social dynamics."
+setting: "historical"
+world_rules:
+  - "Technology and knowledge are limited to the historical period"
+  - "Social structures and hierarchies of the era are in effect"
+  - "Religious and cultural beliefs of the time influence all interactions"
+  - "Travel and communication are limited by period-appropriate methods"
+  - "Economic systems operate according to historical norms"
+  - "Gender roles and social expectations match the historical period"
+danger_level: 0.5
+narrative_focus: "character"
+response_length: "detailed"
+nsfw_level: 0
+tone: "serious"
+characters:
+  "Noble":
+    description: "A member of the aristocracy with education, wealth, and social influence"
+    personality: "Educated, politically aware, conscious of honor and duty, sometimes arrogant"
+    background: "Born into privilege with access to the best education and resources of the era"
+    abilities:
+      "Political Influence": "Connections and authority within the social hierarchy"
+      "Classical Education": "Knowledge of literature, philosophy, and arts"
+      "Swordsmanship": "Training in martial arts appropriate to their class"
+      "Resource Access": "Wealth and ability to command servants and followers"
+    equipment: ["Fine clothing", "Quality weapons", "Horse and tack", "Personal seal and documents"]
+    goals: ["Maintain family honor and position", "Navigate court politics", "Fulfill social obligations"]
+    relationships: {}
+  "Merchant":
+    description: "A trader who travels between settlements conducting business"
+    personality: "Practical, observant, adaptable, skilled at reading people and situations"
+    background: "Self-made through trade and commerce, understanding both high and low society"
+    abilities:
+      "Trade Networks": "Contacts and knowledge of commercial routes"
+      "Negotiation": "Skilled at bargaining and making deals"
+      "Practical Knowledge": "Understanding of goods, prices, and market conditions"
+      "Cultural Awareness": "Experience with different peoples and customs"
+    equipment: ["Trade goods", "Wagon or pack animals", "Merchant's tools", "Travel gear"]
+    goals: ["Expand trade network and profits", "Establish new commercial relationships", "Avoid bandits and political troubles"]
+    relationships:
+      "Noble": "Business relationship with appropriate deference to social rank"
+  "Scholar":
+    description: "A learned individual dedicated to the pursuit of knowledge and wisdom"
+    personality: "Intellectual, curious, methodical, sometimes impractical"
+    background: "Educated in monastery, university, or through apprenticeship to other scholars"
+    abilities:
+      "Ancient Languages": "Ability to read and write in classical languages"
+      "Research Skills": "Training in finding and analyzing information"
+      "Teaching": "Ability to educate others and explain complex concepts"
+      "Copying and Writing": "Skills in manuscript creation and preservation"
+    equipment: ["Books and scrolls", "Writing materials", "Scholar's robes", "Research notes"]
+    goals: ["Preserve and expand human knowledge", "Complete important research", "Train worthy students"]
+    relationships:
+      "Noble": "Respectful relationship as advisor or tutor"
+      "Merchant": "Mutual benefit through information exchange"
+protagonist: "Noble"
+plot_hooks:
+  - "Political intrigue threatens the stability of the realm"
+  - "Religious conflict between different faiths or sects"
+  - "Foreign invasion or threat to the homeland"
+  - "Succession crisis following the death of a ruler"
+  - "Economic disruption affecting trade and daily life"
+  - "Discovery of ancient texts or artifacts with historical significance"
+current_scene: "In the great hall of the castle, where important decisions about the realm's future are being debated by the assembled nobility."
+objectives:
+  - "Navigate the complex political situation"
+  - "Uphold personal and family honor"
+  - "Make decisions that affect the common people"
+  - "Balance competing interests and loyalties"
+style_notes:
+  - "Use period-appropriate language and concepts"
+  - "Show realistic historical constraints and limitations"
+  - "Emphasize the importance of honor, duty, and social position"
+  - "Include authentic details about daily life and customs"
+  - "Respect historical accuracy while allowing for dramatic storytelling"
+important_facts:
+  - "Social hierarchy is rigid and difficult to change"
+  - "Religious authority often rivals secular power"
+  - "Warfare and violence are common aspects of life"
+  - "Education and literacy are rare and valuable"
+  - "Disease and early death are constant threats"
+relationship_dynamics:
+  "Noble-Merchant": "Business relationship constrained by social hierarchy"
+  "Noble-Scholar": "Patron-client relationship based on mutual benefit"
+  "All characters": "Interactions shaped by rigid social expectations"
+system_prompt_additions:
+  - "Maintain historical accuracy for the chosen time period"
+  - "Show how social constraints affect character choices"
+  - "Include period-appropriate challenges and limitations"
+  - "Emphasize the different worldview and values of the historical era"
+ai_personality_traits:
+  - "Historically informed and authentic"
+  - "Respectful of period social norms and constraints"
+  - "Educational about historical context and customs"
+  - "Dramatic but realistic in historical framework"

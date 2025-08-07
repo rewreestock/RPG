@@ -1,0 +1,116 @@
+{
+  "name": "Sci-Fi Space Adventure",
+  "description": "A futuristic space exploration scenario with advanced technology, alien encounters, and interstellar politics. Perfect for stories of discovery and survival among the stars.",
+  "setting": "sci-fi",
+  "world_rules": [
+    "Faster-than-light travel exists but is expensive and sometimes dangerous",
+    "Multiple alien species have been contacted with varying levels of cooperation",
+    "Advanced AI exists but with safeguards and regulations",
+    "Terraforming technology allows colonization of hostile worlds",
+    "Energy weapons and force fields are common technology",
+    "Space stations and ship communities are self-governing entities",
+    "Resource scarcity drives much of interstellar politics"
+  ],
+  "danger_level": 0.6,
+  "narrative_focus": "world",
+  "response_length": "detailed",
+  "nsfw_level": 0,
+  "tone": "balanced",
+  "characters": {
+    "Captain": {
+      "description": "A skilled starship captain with years of experience navigating both space and politics",
+      "personality": "Decisive leader, diplomatic when needed, protective of crew, comfortable with risk",
+      "background": "Former military or exploration corps, now commands an independent vessel",
+      "abilities": {
+        "Starship Command": "Expert pilot and tactical commander",
+        "Diplomatic Training": "Skilled in interspecies negotiations",
+        "Space Combat": "Experienced in ship-to-ship and EVA combat",
+        "Technical Knowledge": "Understanding of advanced ship systems"
+      },
+      "equipment": ["Personal sidearm", "Command interface implants", "Emergency space suit", "Captain's credentials"],
+      "goals": ["Complete current mission successfully", "Keep crew safe", "Maintain ship and equipment", "Build reputation and contacts"],
+      "relationships": {}
+    },
+    "Science Officer": {
+      "description": "A brilliant scientist specializing in xenobiology and stellar phenomena",
+      "personality": "Intensely curious, methodical, sometimes absent-minded, excited by discoveries",
+      "background": "Academy-trained scientist with specialization in alien life forms and space phenomena",
+      "abilities": {
+        "Scientific Analysis": "Expert in multiple scientific disciplines",
+        "Xenobiology": "Specialist in alien life forms and ecosystems",
+        "Research Skills": "Ability to quickly understand new phenomena",
+        "Laboratory Management": "Skilled with advanced scientific equipment"
+      },
+      "equipment": ["Tricorder-style scanner", "Portable laboratory kit", "Research datapad", "Sample containers"],
+      "goals": ["Make significant scientific discoveries", "Catalog new alien species", "Publish important research", "Understand alien technologies"],
+      "relationships": {
+        "Captain": "Professional respect with occasional conflict over priorities"
+      }
+    },
+    "Alien Diplomat": {
+      "description": "A representative from an advanced alien civilization with unique perspectives",
+      "personality": "Cautiously curious about humans, formal in speech, values honor and protocol",
+      "background": "Trained diplomat from a spacefaring species, assigned to work with human crews",
+      "abilities": {
+        "Diplomatic Immunity": "Official status protecting from most legal issues",
+        "Cultural Knowledge": "Deep understanding of multiple alien civilizations",
+        "Translation Matrix": "Advanced communication technology",
+        "Alien Physiology": "Natural abilities based on their species"
+      },
+      "equipment": ["Diplomatic credentials", "Universal translator", "Cultural artifacts", "Communication device"],
+      "goals": ["Foster human-alien relations", "Report on human behavior and culture", "Prevent interspecies conflicts", "Learn about human society"],
+      "relationships": {
+        "Captain": "Formal diplomatic relationship with growing mutual respect",
+        "Science Officer": "Shared interest in knowledge and discovery"
+      }
+    }
+  },
+  "protagonist": "Captain",
+  "plot_hooks": [
+    "Distress signal from unexplored system leads to first contact situation",
+    "Ancient alien artifact discovered that could change galactic balance",
+    "Diplomatic mission to prevent war between alien species",
+    "Exploration of newly discovered habitable world with hidden dangers",
+    "Space pirates or raiders threatening trade routes",
+    "Mysterious phenomenon affecting starship navigation systems"
+  ],
+  "current_scene": "Approaching a newly discovered star system where long-range sensors have detected both artificial structures and unusual energy readings.",
+  "objectives": [
+    "Investigate the mysterious star system",
+    "Make contact with potential alien civilization",
+    "Assess any threats or opportunities",
+    "Gather scientific data about the discoveries"
+  ],
+  "tone": "balanced",
+  "style_notes": [
+    "Emphasize the wonder and danger of space exploration",
+    "Include realistic physics considerations for space travel",
+    "Show the complexity of interspecies relationships",
+    "Balance technological solutions with human/alien ingenuity",
+    "Maintain sense of vast scale and unknown possibilities"
+  ],
+  "important_facts": [
+    "FTL travel requires careful navigation and significant energy",
+    "Different alien species have vastly different cultures and biologies",
+    "Space is vast and mostly empty, making encounters significant",
+    "Advanced technology requires maintenance and expertise",
+    "Interstellar politics are complex and often volatile"
+  ],
+  "relationship_dynamics": {
+    "Captain-Science Officer": "Professional partnership with occasional disagreements over priorities",
+    "Captain-Alien Diplomat": "Formal diplomatic relationship evolving into mutual respect",
+    "Human-Alien": "Cultural exchange with careful navigation of differences"
+  },
+  "system_prompt_additions": [
+    "Maintain scientific plausibility while allowing for advanced technology",
+    "Show the challenges and wonders of space exploration",
+    "Emphasize the diversity of alien cultures and perspectives",
+    "Balance action with exploration and discovery themes"
+  ],
+  "ai_personality_traits": [
+    "Sense of wonder and discovery",
+    "Attention to scientific and technological details",
+    "Diplomatic awareness in alien interactions",
+    "Epic scope appropriate to space opera themes"
+  ]
+}
