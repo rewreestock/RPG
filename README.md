@@ -28,15 +28,34 @@ pip install -e .
 
 ### Setup
 
-1. Set your Gemini API key:
+The RPG system now uses a user-friendly configuration approach:
+
+**Quick Setup (Recommended):**
+```bash
+rp-system --setup
+```
+This launches an interactive wizard to configure your API key and preferences.
+
+**Alternative Methods:**
+```bash
+# Quick API key setup
+rp-system --api-key "your-gemini-api-key-here"
+
+# Create example config file
+rp-system --create-example-config config.json
+```
+
+**Getting an API Key:**
+1. Visit [Google AI Studio](https://ai.google.dev/)
+2. Sign in and create a new API key
+3. Use the setup wizard or manual configuration
+
+**Legacy Environment Variable (still supported):**
 ```bash
 export GEMINI_API_KEY="your-api-key-here"
 ```
 
-Or create a `.env` file:
-```
-GEMINI_API_KEY=your-api-key-here
-```
+For detailed configuration options, see [CONFIGURATION.md](CONFIGURATION.md).
 
 2. Run the system:
 ```bash
