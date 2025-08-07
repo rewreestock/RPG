@@ -414,6 +414,8 @@ class ConfigManager:
         config_file = self.config_dir / "system_config.json"
         
         if not config_file.exists():
+            # Create default config file on first run
+            self._create_default_config_file()
             return
         
         try:
@@ -425,6 +427,47 @@ class ConfigManager:
             
         except Exception as e:
             self.logger.error(f"Failed to load system config: {e}")
+            self.logger.info("Creating new default configuration")
+            self._create_default_config_file()
+    
+    def _create_default_config_file(self) -> None:
+        """Create a default configuration file."""
+        config_file = self.config_dir / "system_config.json"
+        
+        try:
+            # Create the directory if it doesn't exist
+            config_file.parent.mkdir(parents=True, exist_ok=True)
+            
+            # Create default config with comments
+            default_config = {
+                "_comment": "RPG System Configuration - Edit this file to customize your settings",
+                "gemini_api_key": "",
+                "gemini_model": "gemini-2.0-flash-exp",
+                "max_tokens": 950000,
+                "recent_token_reserve": 30000,
+                "character_token_reserve": 20000,
+                "world_token_reserve": 15000,
+                "max_recent_memories": 100,
+                "max_important_memories": 50,
+                "max_character_memories": 30,
+                "memory_compression_days": 7,
+                "enable_search": True,
+                "search_cache_hours": 1,
+                "min_search_interval": 2.0,
+                "response_delay": 0.5,
+                "auto_save_interval": 300,
+                "log_level": "INFO",
+                "storage_base_path": "rp_data",
+                "log_file_path": "rp_system.log"
+            }
+            
+            with open(config_file, 'w') as f:
+                json.dump(default_config, f, indent=2)
+            
+            self.logger.info(f"Created default configuration at {config_file}")
+            
+        except Exception as e:
+            self.logger.error(f"Failed to create default config: {e}")
     
     def _save_system_config(self) -> None:
         """Save system configuration to file."""

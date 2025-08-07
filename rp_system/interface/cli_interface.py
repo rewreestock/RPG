@@ -31,6 +31,7 @@ from ..characters.personality_engine import PersonalityEngine
 from ..world.world_state import WorldState
 from ..world.event_system import EventSystem
 from .config_manager import ConfigManager
+from .setup_wizard import SetupWizard
 
 
 class CLIInterface:
@@ -132,8 +133,26 @@ class CLIInterface:
                 for issue in config_issues:
                     self._print(f"  - {issue}", "red")
                 
-                if not self._confirm("Continue anyway?", False):
-                    return False
+                # Special handling for missing API key
+                if any("API key" in issue for issue in config_issues):
+                    self._print("\n💡 Tip: Run 'rp-system --setup' to configure your API key", "cyan")
+                    
+                    if self._confirm("Do you want to run setup now?", True):
+                        wizard = SetupWizard()
+                        if wizard.run_setup():
+                            # Reload config after setup
+                            self.config_manager = ConfigManager()
+                            config_issues = self.config_manager.validate_config()
+                        else:
+                            return False
+                
+                # Check if there are still critical issues
+                remaining_issues = self.config_manager.validate_config()
+                critical_issues = [issue for issue in remaining_issues if "API key" in issue]
+                
+                if critical_issues:
+                    if not self._confirm("Continue anyway? (System may not work properly)", False):
+                        return False
             
             # Get configurations
             system_config = self.config_manager.get_system_config()
@@ -145,10 +164,19 @@ class CLIInterface:
                 path.mkdir(parents=True, exist_ok=True)
             
             # Initialize core components
-            self.gemini_client = GeminiClient(
-                api_key=system_config.gemini_api_key,
-                model=system_config.gemini_model
-            )
+            if system_config.gemini_api_key:
+                self.gemini_client = GeminiClient(
+                    api_key=system_config.gemini_api_key,
+                    model=system_config.gemini_model
+                )
+                
+                # Test Gemini connection
+                if not self.gemini_client.is_healthy():
+                    self._print("⚠ Warning: Gemini API connection test failed", "yellow")
+                    self._print("  Check your API key and internet connection", "yellow")
+            else:
+                self._print("⚠ Warning: No API key configured - AI features will be disabled", "yellow")
+                self.gemini_client = None
             
             self.context_manager = ContextManager(
                 max_tokens=system_config.max_tokens
@@ -176,11 +204,7 @@ class CLIInterface:
             
             self.event_system = EventSystem()
             
-            # Test Gemini connection
-            if not self.gemini_client.is_healthy():
-                self._print("Warning: Gemini API connection test failed", "yellow")
-            
-            self._print("System initialized successfully!", "green")
+            self._print("✓ System initialized successfully!", "green")
             return True
             
         except Exception as e:
@@ -298,6 +322,22 @@ class CLIInterface:
             AI response
         """
         try:
+            if not self.gemini_client:
+                return ("I apologize, but the AI is not available because no API key is configured. "
+                       "Please run 'rp-system --setup' to configure your API key.")
+            
+            # Quick validation before processing
+            try:
+                # Try a quick token count to validate API key
+                test_tokens = self.gemini_client.count_tokens("test")
+                if test_tokens <= 0:
+                    return ("AI service is currently unavailable. Please check your API key configuration "
+                           "with 'rp-system --setup'.")
+            except Exception as e:
+                return (f"AI service error: {str(e)[:100]}... "
+                       "Please check your API key and internet connection. "
+                       "Run 'rp-system --setup' to reconfigure.")
+            
             # Add user message to context
             message_tokens = self.gemini_client.count_tokens(message)
             self.context_manager.add_message(
@@ -361,7 +401,17 @@ class CLIInterface:
             
         except Exception as e:
             self.logger.error(f"Error processing message: {e}")
-            return f"I apologize, but I encountered an error processing your message: {e}"
+            
+            # Provide helpful error messages based on error type
+            error_str = str(e).lower()
+            if "api" in error_str and "key" in error_str:
+                return ("API key error detected. Please run 'rp-system --setup' to configure a valid API key.")
+            elif "deadline exceeded" in error_str or "timeout" in error_str:
+                return ("Request timed out. Please check your internet connection and try again.")
+            elif "quota" in error_str or "rate limit" in error_str:
+                return ("API quota exceeded or rate limited. Please wait a moment and try again.")
+            else:
+                return f"I apologize, but I encountered an error: {str(e)[:100]}..."
     
     def _check_and_trigger_events(self) -> None:
         """Check for and trigger any applicable events."""
@@ -567,8 +617,35 @@ def main():
     parser.add_argument("--config", "-c", help="Configuration file to load")
     parser.add_argument("--load", "-l", help="Session file to load")
     parser.add_argument("--no-init", action="store_true", help="Skip system initialization")
+    parser.add_argument("--setup", action="store_true", help="Run interactive setup wizard")
+    parser.add_argument("--api-key", help="Quick setup with API key")
+    parser.add_argument("--create-example-config", help="Create example config file at specified path")
     
     args = parser.parse_args()
+    
+    # Handle setup commands first
+    if args.setup:
+        from .setup_wizard import SetupWizard
+        wizard = SetupWizard()
+        success = wizard.run_setup(force=True)
+        return 0 if success else 1
+    
+    if args.api_key:
+        from .setup_wizard import SetupWizard
+        wizard = SetupWizard()
+        success = wizard.quick_setup(args.api_key)
+        return 0 if success else 1
+    
+    if args.create_example_config:
+        from .setup_wizard import save_example_config
+        try:
+            path = save_example_config(args.create_example_config)
+            print(f"Example configuration saved to: {path}")
+            print("Edit the file and set your API key, then copy to rp_config/system_config.json")
+            return 0
+        except Exception as e:
+            print(f"Failed to create example config: {e}")
+            return 1
     
     # Create CLI interface
     cli = CLIInterface()
