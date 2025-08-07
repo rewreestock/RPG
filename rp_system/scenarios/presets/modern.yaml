@@ -1,0 +1,78 @@
+name: "Modern Supernatural"
+description: "A contemporary urban fantasy setting where the supernatural world exists hidden alongside normal life. Perfect for stories involving magic in modern times."
+setting: "modern"
+world_rules:
+  - "The Masquerade: Supernatural beings hide their existence from ordinary humans"
+  - "Magic exists but is secret and regulated by hidden organizations"
+  - "Technology and magic coexist, sometimes conflicting"
+  - "Ancient supernatural beings live among modern society"
+  - "Secret organizations police supernatural activity"
+  - "Breaking the Masquerade has severe consequences"
+danger_level: 0.7
+narrative_focus: "character"
+response_length: "detailed"
+nsfw_level: 1
+tone: "dark"
+characters:
+  "Investigator":
+    description: "A modern detective or investigator who stumbles upon the supernatural world"
+    personality: "Curious, skeptical but adaptable, driven by truth"
+    background: "Law enforcement or private investigation background, recently exposed to supernatural elements"
+    abilities:
+      "Investigation Skills": "Expert at finding clues and piecing together mysteries"
+      "Street Contacts": "Network of informants in the city"
+      "Awakening Sight": "Growing ability to see through supernatural illusions"
+    equipment: ["Smartphone", "Detective badge", "Concealed weapon", "Investigation tools"]
+    goals: ["Uncover the truth behind supernatural incidents", "Protect innocent people", "Learn to navigate the hidden world"]
+    relationships: {}
+  "Supernatural Mentor":
+    description: "An experienced supernatural being who guides newcomers"
+    personality: "Wise but secretive, protective of the Masquerade, patient teacher"
+    background: "Centuries of experience living hidden among humans"
+    abilities:
+      "Ancient Knowledge": "Understanding of supernatural history and lore"
+      "Magical Powers": "Significant supernatural abilities"
+      "Network Access": "Connections throughout the supernatural community"
+    equipment: ["Modern disguise items", "Mystical artifacts", "Secure communication devices"]
+    goals: ["Maintain the Masquerade", "Guide new awakened individuals", "Prevent supernatural disasters"]
+    relationships:
+      "Investigator": "Reluctant mentor relationship, growing trust"
+protagonist: "Investigator"
+plot_hooks:
+  - "Strange murders with impossible evidence patterns"
+  - "Missing persons cases involving supernatural elements"
+  - "Corporate conspiracy hiding supernatural activities"
+  - "Ancient supernatural entity awakening in the modern world"
+  - "Breach in the Masquerade threatening exposure"
+  - "Turf war between different supernatural factions"
+current_scene: "Standing outside a crime scene that defies logical explanation, with strange symbols and impossible evidence."
+objectives:
+  - "Investigate the supernatural mystery"
+  - "Learn about the hidden supernatural world"
+  - "Decide whether to embrace or reject supernatural reality"
+  - "Navigate the politics of supernatural factions"
+style_notes:
+  - "Blend modern technology with ancient supernatural elements"
+  - "Emphasize the contrast between mundane and mystical"
+  - "Show the weight of keeping supernatural secrets"
+  - "Include both wonder and horror of the supernatural"
+  - "Maintain tension between revelation and concealment"
+important_facts:
+  - "The supernatural world has strict rules about exposure"
+  - "Multiple supernatural factions exist with different agendas"
+  - "Some humans are 'awakened' and can see through illusions"
+  - "Technology can sometimes disrupt or detect magic"
+  - "Breaking supernatural law has dire consequences"
+relationship_dynamics:
+  "Investigator-Mentor": "Gradual building of trust as the mentor reveals supernatural truths"
+  "Human-Supernatural": "Natural tension between mundane and mystical worldviews"
+system_prompt_additions:
+  - "Emphasize the hidden nature of the supernatural world"
+  - "Show both the wonder and danger of magical elements"
+  - "Maintain realistic modern setting with supernatural overlay"
+  - "Balance mystery revelation with ongoing secrecy needs"
+ai_personality_traits:
+  - "Mysterious and atmospheric storytelling"
+  - "Careful pacing of supernatural revelations"
+  - "Attention to modern urban details"
+  - "Building tension between mundane and mystical"
